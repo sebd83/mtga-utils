@@ -1,6 +1,6 @@
 import simplejson as json
-from mtga_log import MtgaLogParsingError, get_mtga_file_path
-import scryfall
+from mtga_utils.mtga_log import MtgaLogParsingError, get_mtga_file_path
+import mtga_utils.scryfall
 
 MTGA_FORMATS_FILENAME = "formats.json"
 MTGA_FORMATS_KEYWORD = "PlayerInventory.GetFormats"

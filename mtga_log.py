@@ -3,7 +3,7 @@ from future.utils import iteritems
 from mtga.set_data import all_mtga_cards # import from top
 import os
 import simplejson as json
-import scryfall
+import mtga_utils.scryfall
 import re
 import logging
 
