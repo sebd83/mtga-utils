@@ -73,11 +73,17 @@ class MtgaLog(object):
         copy = False
         dict_levels = 0
         list_levels = 0
+        line_i = 0 # for debug, to know where the regex hits results
 
         with open(self.log_filename) as logfile:
+            #print(keyword) # for debug
             for line in logfile:
+                line_i += 1 # for debug
                 if re.search(r"%s\b" % re.escape(keyword), line):
+                    #print(line_i) # for debug
                     bucket = []
+                    dict_levels = 0 # FIX needed to correctly encapsulate a single json dict
+                    list_levels = 0
                     if line.count('{') > 0 or line.count('[') > 0:
                         line = re.sub(r'.*' + re.escape(keyword), '', line)
                     else:
