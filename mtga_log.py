@@ -1,5 +1,6 @@
 from __future__ import print_function
 from future.utils import iteritems
+from mtga.set_data import all_mtga_cards # import from top
 import os
 import simplejson as json
 import scryfall
@@ -28,7 +29,7 @@ def get_mtga_file_path(filename):
     return filepath
 
 def find_one_mtga_card(mtga_id):
-    from mtga.set_data import all_mtga_cards
+    #from mtga.set_data import all_mtga_cards
     return all_mtga_cards.find_one(mtga_id)
 
 
