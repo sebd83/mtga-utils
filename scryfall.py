@@ -34,6 +34,12 @@ def get_arena_card_json(arena_id):
         raise ScryfallError('Unknown card id %s. Status code: %s' % (arena_id, response.status_code))
     return response.json()
 
+def get_named_card_json(named):
+    """Get card from Scryfall by name"""
+    response = requests.get(SCRYFALL_CARDS_API+'/named?exact='+str(named))
+    if response.status_code != requests.codes.ok:
+        raise ScryfallError('Unknown card id %s. Status code: %s' % (named, response.status_code))
+    return response.json()
 
 def scryfall_to_mtga(scryfall_card):
     from mtga.models.card import Card
